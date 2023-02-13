@@ -55,6 +55,8 @@ MIDDLEWARE = [
     # CORS
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    'profiles.middleware.TokenExpiryMiddleware',
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (

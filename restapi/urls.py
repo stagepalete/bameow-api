@@ -23,6 +23,7 @@ router = DefaultRouter()
 router.register(r'api/v1/profile', profiles.UserViewSet, basename='profiles')
 router.register(r'api/v1/login', profiles.LoginViewSet, basename='login')
 router.register(r'api/v1/products', products.ProductsViewSet, basename='products')
+router.register(r'api/v1/tokens', profiles.TokenIssuerViewSet, basename='tokens')
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
