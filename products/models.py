@@ -2,12 +2,6 @@ from django.db import models
 # Create your models here.
 
 class ProductManager(models.Manager):
-    # def get_queryset(self):
-    #     return super().get_queryset().filter(is_active=True)
-    # def create_product(self, name, size):
-    #     product = self.model(name = name, size = size)
-    #     product.save(using=self._db)
-    #     return product
     def create_product(self, name, article, color, size, rating, price, description):
         for i in [name, article, color, size, rating, price, description]:
             if not i:

@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from rest_framework.authtoken.models import Token
 from django.utils import timezone
-# Create your models here.
 
 class UserManager(BaseUserManager):
     '''Custom user model'''
