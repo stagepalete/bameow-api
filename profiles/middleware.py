@@ -9,7 +9,7 @@ class TokenExpiryMiddleware:
     def __call__(self, request):
         user = get_user(request)
 
-        if user and user.token_expiry:
+        if user.is_authenticated and user.token_expiry:
             expiry = datetime.strptime(user.token_expiry, '%Y-%m-%d %H:%M:%S.%f')
 
             if expiry < datetime.now():
