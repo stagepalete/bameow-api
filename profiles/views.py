@@ -24,11 +24,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class LoginViewSet(viewsets.ViewSet):
-    # '''Checks email and passwords and return authtoken'''
-    # serializer_class = AuthTokenSerializer
-    # def create(self, request):
-    #     '''Use the ObtainAuthToken APIView to validate and create token'''
-    #     return ObtainAuthToken().as_view()(request=request._request)
     '''Checks email and passwords and return authtoken'''
     serializer_class = AuthTokenSerializer
     def create(self, request):
