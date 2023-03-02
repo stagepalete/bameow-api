@@ -17,5 +17,5 @@ class ProductSerializer(serializers.ModelSerializer):
             description = validated_data['description']
         )
         product.save()
-
         return product
+        
