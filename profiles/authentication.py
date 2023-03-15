@@ -47,7 +47,7 @@ class TokenAuthenticationWithExpiry(TokenAuthentication):
     def authenticate_credentials(self, key):
         user, token = super().authenticate_credentials(key)
 
-        if token.created < timezone.now() - timedelta(hours=24):
+        if token.created < timezone.now() - timedelta(hours=0.01):
             raise exceptions.AuthenticationFailed('Token has expired')
 
         return (user, token)
@@ -58,7 +58,7 @@ class TokenAuthenticationWithExpiry(TokenAuthentication):
         except TypeError:
             raise exceptions.AuthenticationFailed('Invalid token')
 
-        if token.created < timezone.now() - timedelta(hours=24):
+        if token.created < timezone.now() - timedelta(hours=0.01):
             raise exceptions.AuthenticationFailed('Token has expired')
 
         return (user, token)

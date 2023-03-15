@@ -28,5 +28,6 @@ router.register(r'api/v1/tokens', profiles.TokenIssuerViewSet, basename='tokens'
 router.register(r'api/v1/reviews', reviews.ReviewViewSet, basename='reviews')
 urlpatterns = [
     path(r'admin/', admin.site.urls),
-    path(r'', include(router.urls))
+    path(r'', include(router.urls)),
+    path(r'api/v1/logout/', profiles.LogoutView.as_view(), name='logout'),
 ]

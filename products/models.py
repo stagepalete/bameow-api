@@ -20,6 +20,7 @@ class Product(models.Model):
     rating = models.IntegerField()
     price = models.CharField(max_length=255)
     description = models.TextField()
+    # reviews = reviews.reviews()
     objects = ProductManager()
 
     REQUIRED_FIELDS = ['name', 'article', 'color', 'size', 'rating', 'price', 'description']

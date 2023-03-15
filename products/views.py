@@ -13,7 +13,7 @@ class ProductsViewSet(viewsets.ModelViewSet):
     queryset = models.Product.objects.all()
     filter_backends = (filters.SearchFilter,)
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [customperm.isAdminOrReadOnly]
+    permission_classes = [customperm.isAdminOrReadOnly,]
     search_fields = ('name', 'article',)
 
 

@@ -3,8 +3,10 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.decorators import action
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
+from rest_framework import permissions as ps
 from datetime import datetime, timedelta
 from django.contrib.auth import authenticate
 
@@ -21,7 +23,13 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('email', 'name', 'lastname',)
 
+class LogoutView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [ps.IsAuthenticated]
 
+    def post(self, request, format=None):
+        request.user.auth_token.delete()
+        return Response(status=204)
 
 class LoginViewSet(viewsets.ViewSet):
     '''Checks email and passwords and return authtoken'''
