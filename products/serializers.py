@@ -7,8 +7,6 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Product
         fields = ('id', 'name', 'article', 'color', 'size', 'rating', 'price', 'description','reviews')
-        # fields = '__all__'
-        # exclude = ('draft', )
     def create(self, validated_data):
         product = models.Product(
             name = validated_data['name'],
@@ -21,11 +19,3 @@ class ProductSerializer(serializers.ModelSerializer):
         )
         product.save()
         return product
-
-    # def to_representation(self, instance):
-    #     response = super().to_representation(instance)
-    #     response['reviews'] = ReviewSerializer(instance.reviews).data
-    #     # response['reviews'][0]['user'] = UserSerializer(instance.user).data
-    #     return response
-
-        

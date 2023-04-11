@@ -19,6 +19,7 @@ from rest_framework.routers import DefaultRouter
 from products import views as products
 from profiles import views as profiles
 from reviews import views as reviews
+from orders import views as orders
 
 router = DefaultRouter()
 router.register(r'api/v1/profile', profiles.UserViewSet, basename='profiles')
@@ -26,6 +27,9 @@ router.register(r'api/v1/login', profiles.LoginViewSet, basename='login')
 router.register(r'api/v1/products', products.ProductsViewSet, basename='products')
 router.register(r'api/v1/tokens', profiles.TokenIssuerViewSet, basename='tokens')
 router.register(r'api/v1/reviews', reviews.ReviewViewSet, basename='reviews')
+router.register(r'api/v1/adminorders', orders.AdminOrdersViewSet, basename='adminorders')
+router.register(r'api/v1/orders', orders.UserOrdersViewSet, basename='userorders')
+
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'', include(router.urls)),
