@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import PermissionsMixin
-# Create your models here.
 
 from profiles.models import User 
 from products.models import Product
@@ -17,7 +15,6 @@ class ReviewManager(models.Manager):
 
 class reviews(models.Model):
     '''Reviews model'''
-    # userid, comment, size, color, date, productid
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, blank=True, null = True, related_name='children')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')

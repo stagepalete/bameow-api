@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from . import models as review
-# from profiles.serializers import UserSerializer
 
 
 class RecursiveSerializer(serializers.Serializer):
@@ -13,8 +12,3 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = review.reviews
         fields = ['user','comment','image', 'helpfull', 'date', 'children']
-
-    # def to_representation(self, instance):
-    #     response = super().to_representation(instance)
-    #     response['user'] = UserSerializer(instance.user).data
-    #     return response
